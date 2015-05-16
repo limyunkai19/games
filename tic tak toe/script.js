@@ -47,6 +47,10 @@ function stateCheck(row, col){
         document.getElementById("message").innerHTML = winner + " wins";
         gameEnded = true;
     }
+    else if(playsequence.length === 9){
+        document.getElementById("message").innerHTML = "draws";
+        gameEnded = true;
+    }
 }
 
 function undo(){
