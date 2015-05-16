@@ -19,8 +19,8 @@
         }
 
         td {
-            border-left: solid 2px;
-            border-top: solid 2px;
+            border-left: solid 2px black;
+            border-top: solid 2px black;
             height: 70px;
             width: 70px;
         }
@@ -76,6 +76,11 @@
             background-color: #A0A3FF;
         }
 
+        .winner {
+            color: red;
+            background-color: #A0A3FF;
+        }
+
     </style>
 </html>
 
@@ -111,7 +116,13 @@
             var id = "cell" + i.toString();
             document.getElementById(id).addEventListener("click", play);
             document.getElementById(id).addEventListener("mouseover", touch);
-            document.getElementById(id).addEventListener("mouseout", function(){document.getElementById(this.id).className = ""});
+            document.getElementById(id).addEventListener("mouseout", 
+                function(){
+                    if(!gameEnded){
+                        document.getElementById(this.id).className = ""
+                    }
+                }
+            );
         }
 
         document.getElementById("undo").addEventListener("click", undo);

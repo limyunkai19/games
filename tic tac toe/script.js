@@ -21,40 +21,52 @@ function play() {
 }
 
 function stateCheck(row, col){
-    var winner = ".", match_row = 0, match_col = 0, match_dia_maj = 0, match_dia_min = 0;
+    var winner = ".", matches = {match_row: [], match_col: [], match_dia_maj: [], match_dia_min: []};
 
     match1 = 0, match2 = 0;
     for(var i = 0; i < 3; i++){
         //check row
         if(state[row][i] == state[row][col]){
-            match_row++;
+            matches.match_row.push([row, i]);
         }
         //check col
         if(state[i][col] == state[row][col]){
-            match_col++;
+            matches.match_col.push([i, col]);
         }
         //check major dia
         if(state[i][i] == state[row][col]){
-            match_dia_maj++;
+            matches.match_dia_maj.push([i, i]);
         }
         //check minor dia
         if(state[i][2-i] == state[row][col]){
-            match_dia_min++;
+            matches.match_dia_min.push([i, 2-i]);
         }
     }
-    if(match_row == 3 || match_col == 3 || match_dia_maj == 3 || match_dia_min == 3){
-        winner = state[row][col];
-        document.getElementById("message").innerHTML = winner + " wins";
-        gameEnded = true;
+    
+    for(var key in matches){
+        //alert(key + "->" + matches[key].length);
+        if(matches[key].length === 3){
+            var wincell = matches[key];
+            for(var i = 0; i < wincell.length; i++){
+                var wincellnum =  wincell[i][0]*3 + wincell[i][1];
+                var id = "cell" + wincellnum.toString();
+                document.getElementById(id).className = "winner";
+            }
+            winner = state[row][col]; 
+            document.getElementById("message").innerHTML = winner + " wins";
+            gameEnded = true;
+        }
     }
-    else if(playsequence.length === 9){
+
+    
+    if(playsequence.length === 9 && !gameEnded){
         document.getElementById("message").innerHTML = "Draws";
         gameEnded = true;
     }
 }
 
 function undo(){
-    if(playsequence.length !== 0){
+    if(playsequence.length !== 0 && !gameEnded){
         var cell = playsequence.pop();
         var cellnum = cell[0]*3 + cell[1];
         var id = "cell" + cellnum.toString();
@@ -66,11 +78,13 @@ function undo(){
     }
 }
 
-function touch(){  
-    var cell = Number(this.id[4]);
-    var row = Math.floor(cell/3), col = cell%3;
-    if(state[row][col] === "."){
-        document.getElementById(this.id).className = "mouseovercell"
+function touch(){
+    if(!gameEnded){
+        var cell = Number(this.id[4]);
+        var row = Math.floor(cell/3), col = cell%3;
+        if(state[row][col] === "."){
+            document.getElementById(this.id).className = "mouseovercell"
+        }
     }
 }
 
@@ -83,6 +97,7 @@ function reset(){
     for(var i = 0; i < 9; i++){
         var id = "cell" + i.toString();
         document.getElementById(id).innerHTML = "";
+        document.getElementById(id).className = "";
     }
     document.getElementById("message").innerHTML = "O turns";
 }
