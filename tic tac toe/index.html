@@ -39,12 +39,41 @@
         h1 {
             text-align: center;
             font-size: 40px;
-            margin-top: 5%;
+            margin-top: 2%;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        div > p {
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        div > div {
+            border: solid #A0A3FF 2px;
+            border-radius: 10%;
+            text-align: center;
+            display: inline-block;
+            margin: 0px 5px;
+            height: 100px;
+            width: 250px;
+            background-color: none;
+            padding-top: -10px;
+            float: center;
+        }
+
+        form {
+            position: absolute;
+            text-align: center;
+            margin: 0px auto;
+            width: 250px;
         }
 
         #message {
             font-size: 25px;
-            margin-top: 3%;
+            margin-top: 2%;
             margin-bottom: 3%;
         }
 
@@ -73,6 +102,10 @@
         }
 
         .mouseovercell {
+            background-color: #A0A3FF;
+        }
+
+        .selected {
             background-color: #A0A3FF;
         }
 
@@ -109,6 +142,20 @@
         <button id="undo"> Undo </button>
         <button id="reset"> Reset </button>
     </div>
+
+    <div id="modeContainer">
+        <div id="playWithFriends" class="selected">
+            <p> Play with Friends. </p>
+        </div>
+        <div id="challengeMe">
+            <p> Challange Me. </p>
+            <form>
+                <input type="radio" name="difficulty" id="easy"> Easy
+                <input type="radio" name="difficulty" id="medium"> Medium
+                <input type="radio" name="difficulty" id="hard"> Hard
+            </form>
+        </div>
+    </div>
     
     <script type="text/javascript">
         //add event listener
@@ -127,5 +174,7 @@
 
         document.getElementById("undo").addEventListener("click", undo);
         document.getElementById("reset").addEventListener("click", reset);
+        document.getElementById("playWithFriends").addEventListener("click", playWithFriends);
+        document.getElementById("challengeMe").addEventListener("click", challengeMe);
     </script>
 </body>
