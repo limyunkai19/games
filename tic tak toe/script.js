@@ -48,7 +48,7 @@ function stateCheck(row, col){
         gameEnded = true;
     }
     else if(playsequence.length === 9){
-        document.getElementById("message").innerHTML = "draws";
+        document.getElementById("message").innerHTML = "Draws";
         gameEnded = true;
     }
 }
@@ -64,4 +64,25 @@ function undo(){
         document.getElementById("message").innerHTML = player[turn] + " turns";
         document.getElementById(id).innerHTML = "";
     }
+}
+
+function touch(){  
+    var cell = Number(this.id[4]);
+    var row = Math.floor(cell/3), col = cell%3;
+    if(state[row][col] === "."){
+        document.getElementById(this.id).className = "mouseovercell"
+    }
+}
+
+function reset(){
+    turn = 0, gameEnded = false;
+    playsequence = [];
+    state = [   [".", ".", "."],
+                [".", ".", "."],
+                [".", ".", "."],    ];
+    for(var i = 0; i < 9; i++){
+        var id = "cell" + i.toString();
+        document.getElementById(id).innerHTML = "";
+    }
+    document.getElementById("message").innerHTML = "O turns";
 }
