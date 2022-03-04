@@ -1,0 +1,81 @@
+:root {
+  --cellSize: 70px;
+  --dividerSize: 8px;
+}
+
+body {
+  background-color: #B7D5FF;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 2%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.cell {
+  height: var(--cellSize);
+  width: var(--cellSize);
+  background-color: brown;
+  display: inline-block;
+  margin: 0px;
+}
+
+.vertical-divider {
+  height: var(--cellSize);
+  width: var(--dividerSize);
+  display: inline-block;
+  margin: 0px;
+}
+
+.horizontal-divider {
+  height: var(--dividerSize);
+  width: var(--cellSize);
+  display: inline-block;
+  margin: 0px;
+}
+
+.dot-divider {
+  height: var(--dividerSize);
+  width: var(--dividerSize);
+  display: inline-block;
+  margin: 0px;
+}
+
+.chocolate-row {
+  display: block;
+  text-align: center;
+  margin: 0px;
+  white-space: nowrap;
+}
+
+.chocolate {
+  font-size: 0px;
+}
+
+.game-control {
+  margin-top: 10px;
+  text-align: center;
+}
+
+button {
+  margin: 15px;
+  width: 60px;
+  border-radius: 30px;
+  border: 0px solid;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/games/chocolate-bar-game/static/css/main.3d58d4c0.css",
+    "main.js": "/games/chocolate-bar-game/static/js/main.177efa18.js",
+    "index.html": "/games/chocolate-bar-game/index.html",
+    "main.3d58d4c0.css.map": "/games/chocolate-bar-game/static/css/main.3d58d4c0.css.map",
+    "main.177efa18.js.map": "/games/chocolate-bar-game/static/js/main.177efa18.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d58d4c0.css",
+    "static/js/main.177efa18.js"
+  ]
+}
