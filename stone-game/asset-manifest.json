@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/games/stone-game/static/css/main.e3d60977.css",
+    "main.js": "/games/stone-game/static/js/main.092233d6.js",
+    "index.html": "/games/stone-game/index.html",
+    "main.e3d60977.css.map": "/games/stone-game/static/css/main.e3d60977.css.map",
+    "main.092233d6.js.map": "/games/stone-game/static/js/main.092233d6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e3d60977.css",
+    "static/js/main.092233d6.js"
+  ]
+}
