@@ -1,0 +1,49 @@
+body {
+  background-color: #B7D5FF;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 2%;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border: 3px solid black;
+  border-radius: 20px;
+  background-color: white;
+  display: inline-block;
+  margin: 5px;
+}
+
+.row {
+  display: block;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  height: 33px;
+}
+
+.game-control {
+  margin-top: 10px;
+  text-align: center;
+}
+
+button {
+  margin: 15px;
+  width: 60px;
+  border-radius: 30px;
+  border: 0px solid;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
