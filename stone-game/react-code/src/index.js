@@ -103,7 +103,7 @@ const Game = ({ movesCell, totalCell }) => {
       </div>
       <div className='game-control'>
         <button
-          disabled={ gameState === 0 }
+          disabled={ curGameState === 0 }
           onClick={ handleNextAction }
         >
           Next
