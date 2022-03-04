@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.ecf845ea.css",
-    "main.js": "/static/js/main.13e83fb0.js",
-    "index.html": "/index.html",
-    "main.ecf845ea.css.map": "/static/css/main.ecf845ea.css.map",
-    "main.13e83fb0.js.map": "/static/js/main.13e83fb0.js.map"
+    "main.css": "/games/triangle-game/static/css/main.ecf845ea.css",
+    "main.js": "/games/triangle-game/static/js/main.13e83fb0.js",
+    "index.html": "/games/triangle-game/index.html",
+    "main.ecf845ea.css.map": "/games/triangle-game/static/css/main.ecf845ea.css.map",
+    "main.13e83fb0.js.map": "/games/triangle-game/static/js/main.13e83fb0.js.map"
   },
   "entrypoints": [
     "static/css/main.ecf845ea.css",

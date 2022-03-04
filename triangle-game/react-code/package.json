@@ -2,6 +2,7 @@
   "name": "triangle-game-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/games/triangle-game",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
@@ -13,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build/* .. && rmdir build",
+    "build": "react-scripts build && rm -r ../static && mv build/* .. && rmdir build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
