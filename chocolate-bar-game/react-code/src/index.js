@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { winningMove } from './ai.js'
 
-const winningMove = [][[1, 2]]
 
 const QUERYROW = 'row';
 const QUERYCOL = 'col';
@@ -39,7 +39,7 @@ const Chocolate = ({ row, col, chocolateState, cutHorizontalHandler, cutVertical
 
       if(r % 2 === 1 && c % 2 === 1) {
         // . dot divider that acts as vertical divider
-        let bgColor = (hoverV === c || hoverH == r ? color.selectedDivider : color.validDivider);
+        let bgColor = (hoverV === c || hoverH === r ? color.selectedDivider : color.validDivider);
         if(!valid) {
           bgColor = color.invalidDivider;
         }
@@ -169,8 +169,7 @@ const Game = ({ row, col }) => {
   }
 
   const handleNextAction = () => {
-    // fix me
-    // setGameState([...gameState.slice(), nextOptimalMove(curGameState)]);
+    setGameState([...gameState.slice(), nextOptimalMove(curGameState)]);
   }
 
   const handleUndoAction = () => {
@@ -240,10 +239,23 @@ function getDimentionFromQuery(query, queryString, defaultVal, maxVal) {
   return n;
 }
 
-function isWinningState(gameState) {
-  // fix me
-}
-
 function nextOptimalMove(gameState) {
-  // fix me
+  let newGamePartialState;
+  let curWinningMove = winningMove[gameState.height][gameState.width];
+
+  if(curWinningMove[0] === -1) {
+    // losing state try to drag time
+    if(gameState.height > gameState.width) {
+      newGamePartialState = { height: gameState.height - 1 }
+    }
+    else {
+      newGamePartialState = { width: gameState.width - 1 }
+    }
+  }
+  else {
+    // wining state, play winning move
+    newGamePartialState = { height: curWinningMove[0], width: curWinningMove[1] }
+  }
+
+  return Object.assign({}, gameState, newGamePartialState)
 }
